@@ -20,12 +20,14 @@ parser.add_argument('--build_id', help='The build id of the project')
 
 args=parser.parse_args()
 
+print(args)
+
 stage = args.stage
 
 if stage == "init":
     print("start all dependencies")
     # todo parse compose file and run services
-    result = os.system("docker-compose -f " + args.file + "up redis")
+    result = os.system("docker-compose -f " + args.file + " up redis")
 
 if stage == "test":
     print("Starte mit dem Testen der Anwendung...")
@@ -49,6 +51,8 @@ if stage == "clean":
     result = os.system("docker-compose -f " + args.file + " kill")
     result = os.system("docker-compose -f " + args.file + " rm -f")
     
+
+
 
 if stage == "cmdtest":
     print("Hello from cmdtest")
