@@ -1,0 +1,31 @@
+version: "3.7"
+
+
+
+services: 
+    redis:
+        image: redis
+
+    unittests:
+        build: 
+            context: ./target 
+        depends_on: 
+            - redis
+
+# docker-compose run unitests ls
+
+
+#    target:
+#        build: 
+#            context: ./target
+#            
+#        depends_on: 
+#            - redis
+#            - unittests
+#        ports: 
+#            - 4567:4567
+#        command: bin/bash -c "cd /opt/target/ && /apache-maven-3.6.3/bin/mvn package && java -jar target/cdiprojekt-0.0.1-SNAPSHOT.jar"
+    
+    #acceptanceTests:
+    
+# cd /opt/target/ && /apache-maven-3.6.3/bin/mvn package && java -jar target/cdiprojekt-0.0.1-SNAPSHOT.jar
