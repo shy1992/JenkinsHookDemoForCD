@@ -8,7 +8,7 @@ services:
 
     unittests:
         build: 
-            context: ./target 
+            context: . 
         depends_on: 
             - redis
 
